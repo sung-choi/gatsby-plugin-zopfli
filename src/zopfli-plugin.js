@@ -13,7 +13,7 @@ class WebpackPlugin {
   }
   afterOptimizeAssets (assets) {
     Object.keys(assets).forEach(file => {
-      if (file.endsWith('.css') || file.endsWith('.js')) {
+      if ((/^.*\.(js|css|scss|html|xhtml|htm|xml|json|yml)$/i).test(file)) {
         assetsCompress[`/${file}`] = {}
       }
     })
